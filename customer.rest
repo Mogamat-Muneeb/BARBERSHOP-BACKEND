@@ -1,0 +1,39 @@
+GET http://localhost:3000/customers 
+
+###
+GET http://localhost:3000/customers
+
+
+###
+POST http://localhost:3000/customers/register
+Content-Type: application/json
+
+{
+     "customername":"neeb",
+     "email":"neeb@gmail.com",
+     "password":"muneeb",
+     "phone_number":"0761621649"
+}
+
+###
+POST http://localhost:3000/customers/login
+Content-Type: application/json
+
+{
+     "customername":"neeb",
+     "password":"muneeb"
+     
+}
+
+###
+DELETE http://localhost:3000/customers/6224e13e099889cab780ab0a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI0ZTEzZTA5OTg4OWNhYjc4MGFiMGEiLCJpYXQiOjE2NDY2MzcxNDQsImV4cCI6MTY0NjcyMzU0NH0.5F_zW4tS2daYpKuIOYWCe3R5HMjANcoPWSsXTH4xaqM
+###
+PATCH http://localhost:3000/customers/
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+         "fullname":"muneeb"
+        
+}
