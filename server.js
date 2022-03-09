@@ -1,9 +1,12 @@
 require('dotenv').config()
-
 const express = require('express')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
+const barberRouter = require('./app/routes/barbers.routes.js')
+const bookingRouter = require('./app/routes/bookings.routes.js')
+const customerRouter = require('./app/routes/customers.routes.js')
+
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
 const db = mongoose.connection
@@ -14,7 +17,11 @@ app.use(express.json())
 app.use(cors())
 
 
-const customerRouter = require('./app/routes/customers.routes.js')
 app.use('/customers', customerRouter)
+app.use('/barbers', barberRouter)
+app.use('/barbers', bookingRouter)
+
+
+
 
 app.listen(process.env.PORT || 3000, () => console.log('Server Started'))

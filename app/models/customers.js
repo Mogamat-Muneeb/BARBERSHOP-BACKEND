@@ -22,6 +22,10 @@ const customerSchema = new mongoose.Schema({
         type: String,
         default: Date.now
     },
+    role:{
+        type: String,
+        role: "guest",
+    }
 })
 
 
