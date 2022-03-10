@@ -34,4 +34,22 @@ router.post('/:id/bookings',[verifyToken, findCustomer, findBarber], async (req,
     }
 })
 
+router.delete('/:id/bookings',[verifyToken, findCustomer, findBarber], async (req, res) => {
+    let barberArr = res.barber.customerInfo;
+    let index = barberArr
+      .map((booking) => {
+        return booking._id;
+      })
+      .indexOf(Booking._id);
+    try {
+      barberArr.splice(index, 1);
+      console.log(barberArr);
+      const updatedPost = res.barber.save(barberArr);
+      res.status(200).send({ message: " deleted successfully." });
+    } catch (error) {
+      res.status(500).send({ message: error.message });
+    }
+})
+
+
 module.exports = router
