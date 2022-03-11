@@ -5,7 +5,7 @@ const sessionSchema = new mongoose.Schema({
         type:String,
         required: true,
     },
-    barberId: { 
+    customerId: { 
         type:String,
         required: false,
     },
