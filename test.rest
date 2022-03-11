@@ -1,0 +1,9 @@
+PUT http://localhost:3000/barbers/6228b12e31e2043fddf45821/bookings
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjA4YWM4YmZmYjMyODNmNWNmMjkiLCJpYXQiOjE2NDY5ODk4MTMsImV4cCI6MTY0NzA3NjIxM30.UCJ-1ZdFkBqOk-LStE0O52vFklh7M-NdwsY-U2Rfgyk
+
+{
+    "sessionNumber": "3",
+    "style": "High fade"
+
+}
