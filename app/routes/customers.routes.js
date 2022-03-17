@@ -82,7 +82,7 @@ router.post('/login', async (req, res) => {
         });
       }
       
-      let token = jwt.sign({ _id:  customer._id, cart: customer.cart }, process.env.ACCESS_TOKEN_SECRET, {
+      let token = jwt.sign({ _id:  customer._id, cart: customer.cart, role: customer.role }, process.env.ACCESS_TOKEN_SECRET, {
         expiresIn: 86400 // 24 hours
       });
       res.status(200).send({
