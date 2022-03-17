@@ -7,7 +7,7 @@ const verifyToken = require('../middleware/auth.jwt')
 const verifyEmail = require('../middleware/verification')
 const {Subcription} = require('../middleware/finders')
 const {findCustomer} = require('../middleware/finders')
-
+const nodemailer = require('nodemailer')
 
 
 router.get('/', async (req, res) => {
@@ -35,6 +35,29 @@ router.post('/register',verifyEmail, async (req, res) => {
                         role: 'guest'
                         })
             const newCustomer = await customer.save()
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                  user: process.env.EMAIL,
+                  pass: process.env.PASS
+                }
+              });
+              
+              const mailOptions = {
+                from: process.env.EMAIL,
+                to: req.body.email,
+                subject: "You have been registered successfully",
+                text: `Thank you ${req.body.customername} for signing up with The Urban Shave 
+                `
+              };
+              
+              transporter.sendMail(mailOptions, function(error, info){
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log('Email sent: ' + info.response);
+                }
+              });
             res.status(201).json(newCustomer)
     } catch(err){
         res.status(400).json({ message: err.message })
@@ -91,9 +114,6 @@ router.patch('/subcribe', Subcription, async (req, res) => {
 )
 
 router.patch('/:id',[findCustomer,verifyToken], async (req, res) => {
-    if(req.params.id != req.customerId){
-        return res.status(401).send({ message: "Unauthorized!" });
-    }
     if(req.body.customername !=null){
         res.customer.customername =  req.body.customername
     }
@@ -109,6 +129,31 @@ router.patch('/:id',[findCustomer,verifyToken], async (req, res) => {
     
     try{
         const updatedCustomer = await res.customer.save()
+        // console.log(updatedCustomer)
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: process.env.EMAIL,
+              pass: process.env.PASS
+            }
+          });
+          
+          const mailOptions = {
+            from: process.env.EMAIL,
+            to: req.body.email,
+            subject: `${req.body.customername} your accout has been updated succesfully..`,
+            text: `
+            ${req.body.customername} Your account has been updated succesfully.
+            `
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
         res.json(updatedCustomer)
     } catch (err) {
         res.status(400).json({ message: err.message })
@@ -116,11 +161,37 @@ router.patch('/:id',[findCustomer,verifyToken], async (req, res) => {
 })
 
 router.delete('/:id',[ findCustomer,verifyToken], async (req, res) => {
+    const  { customername , email } = res.customer
     try{
-        if(req.params.id != req.customerId){
-            return res.status(401).send({ message: "Unauthorized!" });
-        }
+    
         await res.customer.remove()
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: process.env.EMAIL,
+              pass: process.env.PASS
+            }
+          });
+          
+          const mailOptions = {
+            from: process.env.EMAIL,
+            to: email,
+            subject: `${customername} your accout has been removed`,
+            text: `thanks for using us
+            `
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }try {
+                res.json({ message: `thank you ${customername}, your email was sent`})
+            } catch (error) {
+                res.status(500).send( {message: error.message} )
+            }
+          });
         // res.json({ message:'Deleted customer'})
     } catch (err) {
         res.status(500).json({ message: err.message })

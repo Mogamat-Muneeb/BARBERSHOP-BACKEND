@@ -1,4 +1,4 @@
-// require('dotenv').config()
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const barberRouter = require('./app/routes/barbers.routes.js')
 const bookingRouter = require('./app/routes/bookings.routes.js')
 const customerRouter = require('./app/routes/customers.routes.js')
+const contactRouter = require('./app/routes/contact.routes.js')
 
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
@@ -20,6 +21,7 @@ app.use(cors())
 app.use('/customers', customerRouter)
 app.use('/barbers', barberRouter)
 app.use('/barbers', bookingRouter)
+app.use('/contact', contactRouter)
 
 
 

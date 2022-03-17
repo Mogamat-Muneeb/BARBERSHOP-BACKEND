@@ -7,3 +7,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjA4Y
     "style": "High fade"
 
 }
+
+###
+
+POST http://localhost:3000/contact
+Content-Type: application/json
+
+{
+    "name":"muneeb",
+    "email":"muneeb@gmail.com",
+    "message":"testing??"
+}
+
+
+###
+DELETE http://localhost:3000/customers/login/6232e071f6ff1a4080232179
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMyZTA3MWY2ZmYxYTQwODAyMzIxNzkiLCJpYXQiOjE2NDc1MDI1NzYsImV4cCI6MTY0NzU4ODk3Nn0.QKwPjbw7s46lO2G1w9F7GQ-IKoih17iMyw-LqNbo5Eg
+
