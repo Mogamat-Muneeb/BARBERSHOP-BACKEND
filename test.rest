@@ -21,7 +21,17 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:3000/customers/login/6232e071f6ff1a4080232179
+PATCH  http://localhost:3000/customers/622c54f0b240cb1a022adc1b
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMyZTA3MWY2ZmYxYTQwODAyMzIxNzkiLCJpYXQiOjE2NDc1MDI1NzYsImV4cCI6MTY0NzU4ODk3Nn0.QKwPjbw7s46lO2G1w9F7GQ-IKoih17iMyw-LqNbo5Eg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJjNTRmMGIyNDBjYjFhMDIyYWRjMWIiLCJpYXQiOjE2NDc1MDUyODAsImV4cCI6MTY0NzU5MTY4MH0.IJBzRIcvxH9qXVAyPQ5UJh5tbOXgyCsd0jwmmZ-hL2g
 
+{
+        "customername": "SuhailTEE",
+        "password": "suhail",
+         "email": "suhail@gmail.com",
+         "phone_number":"0761621649"
+}
+
+#  "email": "suhail@suhail.com",
+#         "phone_number":"1234567890"
+# 622c54f0b240cb1a022adc1b
