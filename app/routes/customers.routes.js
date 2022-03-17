@@ -90,6 +90,7 @@ router.post('/login', async (req, res) => {
         customername:  customer.customername,
         email:  customer.email,
         role: customer.role,
+        phone_number:  customer.phone_number,
         accessToken: token
       });
     })
