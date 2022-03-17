@@ -31,7 +31,3 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJjNTRmM
          "email": "suhail@gmail.com",
          "phone_number":"0761621649"
 }
-
-#  "email": "suhail@suhail.com",
-#         "phone_number":"1234567890"
-# 622c54f0b240cb1a022adc1b
