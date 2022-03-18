@@ -5,7 +5,7 @@ const Barber = require('../models/barbers')
 async function findCustomer (req, res, next) {
     let customer
     try {
-        customer = await Customer.findById(req.params.id)
+        customer = await Customer.findById(req.userId)
         if (!customer) return res.status(404).send({ message: 'Customer not found'})
     } catch (error) {
         res.status(500).send({message: error.message});
@@ -18,7 +18,7 @@ async function findCustomer (req, res, next) {
 async function findBarber (req, res, next) {
     let barber
     try {
-        barber = await Barber.findById(req.params.id)
+        barber = await Barber.findOne({barberName:req.params.barber})
         if (!barber) return res.status(404).send({ message: 'Barber not found'})
     } catch (error) {
         res.status(500).send({message: error.message});

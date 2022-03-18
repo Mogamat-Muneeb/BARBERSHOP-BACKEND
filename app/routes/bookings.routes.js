@@ -15,7 +15,7 @@ const Barber = require('../models/barbers')
     res.send(res.barber.customerInfo)
 })
 
-router.post('/:id/bookings',[verifyToken, findCustomer, findBarber], async (req, res) => {
+router.post('/:barber/bookings',[verifyToken, findCustomer, findBarber], async (req, res) => {
     let barber_id = res.barber._id
     console.log(barber_id)
     let newBooking = new Booking({

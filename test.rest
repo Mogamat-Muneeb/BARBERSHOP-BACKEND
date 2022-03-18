@@ -10,24 +10,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjA4Y
 
 ###
 
-POST http://localhost:3000/contact
+POST http://localhost:3000/barbers/naaim/bookings
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMyYjcxZjU5MmIzODQ5NWMyYmRhMzkiLCJyb2xlIjoiZ3Vlc3QiLCJpYXQiOjE2NDc1OTIwMDcsImV4cCI6MTY0NzY3ODQwN30.rlBPEOHb-OJBdTauils5A1l-8tCWhtrONhmu8iToZgg
 
 {
-    "name":"muneeb",
-    "email":"muneeb@gmail.com",
-    "message":"testing??"
+    "sessionNumber": "session 1",
+    "style":"head shave"
+    
 }
 
 
 ###
-PATCH  http://localhost:3000/customers/622c54f0b240cb1a022adc1b
+POST  http://localhost:3000/customers/login
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJjNTRmMGIyNDBjYjFhMDIyYWRjMWIiLCJpYXQiOjE2NDc1MDUyODAsImV4cCI6MTY0NzU5MTY4MH0.IJBzRIcvxH9qXVAyPQ5UJh5tbOXgyCsd0jwmmZ-hL2g
 
 {
-        "customername": "SuhailTEE",
-        "password": "suhail",
-         "email": "suhail@gmail.com",
-         "phone_number":"0761621649"
+        "customername": "Zubaidah",
+        "password": "baidah"
+     
 }
