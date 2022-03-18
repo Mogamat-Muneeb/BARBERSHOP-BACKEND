@@ -28,13 +28,17 @@ router.post('/',(req, res) => {
       
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
+          // console.log(error);
+          res.status(400).send({msg:"Email not sent"});
           console.log(error);
         } else {
           console.log('Email sent: ' + info.response);
-        }try {
-            res.json({ message: `thank you ${name}, your email was sent`})
-        } catch (error) {
-            res.status(500).send( {message: error.message} )
+          res.send({msg:"Email sent successfully"})
+        // }try {
+        //     res.json({ message: `thank you ${name}, your email was sent`})
+        // } catch (error) {
+        //     res.status(500).send( {message: error.message} )
+        // }
         }
       });
    
