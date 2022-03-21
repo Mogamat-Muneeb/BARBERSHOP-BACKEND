@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     }
  })
 
- router.get('/:id', findCustomer , async (req, res) => {
+ router.get('/:id', findCustomer , (req, res) => {
     res.json(res.customer)
 })
 
