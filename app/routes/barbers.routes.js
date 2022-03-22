@@ -4,7 +4,7 @@ const {findCustomer} = require('../middleware/finders')
 const {findBarber} = require('../middleware/finders')
 const verifyToken = require('../middleware/auth.jwt')
 
-router.get('/',verifyToken, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const barbers = await Barber.find();
          res.send(barbers)
@@ -13,7 +13,7 @@ router.get('/',verifyToken, async (req, res) => {
     }
 })
 
-router.get('/:id',[verifyToken,findBarber], async (req, res) => {
+router.get('/:id',findBarber ,(req, res) => {
     res.send(res.Barber)
 })
 
