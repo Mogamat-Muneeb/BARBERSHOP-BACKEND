@@ -5,7 +5,7 @@ const verifyEmail = (req, res, next) => {
         email: req.body.email
     }).exec((err, customer) => {
         if (err) return res.status(500).send({message: err.message});
-        if (customer) return res.status(400).send({message: 'email already in use'});
+        if (customer) return res.status(400).send({message: 'Email already in use'});
         next();
     })
 }
