@@ -115,7 +115,7 @@ router.patch('/subcribe', Subcription, async (req, res) => {
 }
 )
 
-router.patch('/:id',[findCustomer,verifyToken], async (req, res) => {
+router.patch('/',[verifyToken, findCustomer], async (req, res) => {
     if(req.body.customername !=null){
         res.customer.customername =  req.body.customername
     }
@@ -162,7 +162,7 @@ router.patch('/:id',[findCustomer,verifyToken], async (req, res) => {
     }
 })
 
-router.delete('/:id',[ findCustomer,verifyToken], async (req, res) => {
+router.delete('/',[ verifyToken, findCustomer], async (req, res) => {
     const  { customername , email } = res.customer
     try{
     
