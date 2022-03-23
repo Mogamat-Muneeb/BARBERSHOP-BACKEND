@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id',findBarber ,(req, res) => {
+router.get('/:id',findBarber, async (req, res) => {
     res.send(res.Barber)
 })
 
