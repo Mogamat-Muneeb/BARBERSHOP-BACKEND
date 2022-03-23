@@ -66,7 +66,7 @@ router.post('/register',verifyEmail, async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try{ 
-      Customer.findOne({ customername: req.body.customername} , (err, customer) => {
+      Customer.findOne({ email: req.body.email} , (err, customer) => {
           if(err) return handleError(err);
       if (!customer) {
         return res.status(404).send({ message: "User Not found." });
