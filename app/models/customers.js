@@ -25,11 +25,6 @@ const customerSchema = new mongoose.Schema({
     role:{
         type: String,
         role: "guest",
-    },
-    customerInfo:{
-        type: Array,
-        required: false,
-        default:[]
     }
 })
 
