@@ -30,7 +30,7 @@ router.post('/',[verifyToken,findCustomer], async (req, res) => {
     }
 })
 
-router.put('/',[verifyToken,findBarber],async (req, res) => {
+router.put('/:id',[verifyToken,findBarber],async (req, res) => {
     if(req.body.barberName != null) res.barber.barberName = req.body.barberName
     try {
        const updatedBarber =  await res.barber.save();
@@ -41,7 +41,7 @@ router.put('/',[verifyToken,findBarber],async (req, res) => {
 })
 
 
-router.delete('/',[verifyToken,findBarber], async (req, res) => {
+router.delete('/:id',[verifyToken,findBarber], async (req, res) => {
     try {
         await res.barber.remove();
         res.status(200).send({message: "barber removed successfully"})
