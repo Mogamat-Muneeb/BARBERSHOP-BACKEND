@@ -30,7 +30,7 @@ router.post('/',[verifyToken,findCustomer], async (req, res) => {
     }
 })
 
-router.put('/',[verifyToken,findBarber],async (req, res) => {
+router.put('/:barber',[verifyToken,findBarber],async (req, res) => {
     if(req.body.barberName != null) res.barber.barberName = req.body.barberName
     try {
        const updatedBarber =  await res.barber.save();
