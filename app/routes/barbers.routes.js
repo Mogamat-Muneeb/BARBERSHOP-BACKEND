@@ -41,10 +41,10 @@ router.put('/:barber',[verifyToken,findBarber],async (req, res) => {
 })
 
 
-router.delete('/:barber',[verifyToken,findBarber], async (req, res) => {
+router.delete('/',[verifyToken,findBarber], async (req, res) => {
     try {
         await res.barber.remove();
-        res.status(200).send({message: "barber removed successfully"})
+        res.status(200).send({message: "Barber removed successfully"})
     } catch (err) {
         res.status(500).send({message: err.message})
     }
