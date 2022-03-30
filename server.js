@@ -19,7 +19,7 @@ db.once('open', () => console.log('Connected to Barbershop Database'))
 app.use(express.json())
 app.use(cors())
 app.get("/", (req, res) => {
-    res.json({ message: "welcome to the Urban"})
+    res.json({ message: "welcome to the Urban Shave..."})
 })
 
 app.use('/customers', customerRouter)
