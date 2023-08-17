@@ -34,4 +34,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJjNTRmM
 
 ###
 
-GET http://localhost:3000/customers/6229b2504c228355412a8ca9
+GET http://localhost:3000/customers/6229b2504c228355412a8ca9#
+
+
+###
+POST http://localhost:3000/customers/

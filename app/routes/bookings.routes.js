@@ -79,4 +79,6 @@ router.delete('/:id/bookings',[verifyToken, findCustomer, findBarber], async (re
 })
 
 
+
+
 module.exports = router
