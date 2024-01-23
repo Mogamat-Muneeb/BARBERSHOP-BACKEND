@@ -1,20 +1,21 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const sessionSchema = new mongoose.Schema({
+const sessionSchema = new mongoose.Schema(
+  {
     sessionNumber: {
-        type:String,
-        required: true,
+      type: String,
+      required: true,
     },
-    customerId: { 
-        type:String,
-        required: false,
+    customerId: {
+      type: String,
+      required: false,
     },
     style: {
-        type:String,
-        required: true,
+      type: String,
+      required: true,
     },
-}, {timestamps: true});
+  },
+  { timestamps: true }
+);
 
-
-
-module.exports = mongoose.model('Booking',sessionSchema)
+module.exports = mongoose.model("Booking", sessionSchema);
