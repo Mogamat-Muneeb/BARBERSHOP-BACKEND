@@ -8,6 +8,7 @@ const verifyEmail = require("../middleware/verification");
 const { Subcription } = require("../middleware/finders");
 const { findCustomer } = require("../middleware/finders");
 const nodemailer = require("nodemailer");
+const ACCESS_TOKEN_SECRET = "davimuneeb785"
 
 router.get("/", async (req, res) => {
   try {
@@ -83,7 +84,7 @@ router.post("/login", async (req, res) => {
 
       let token = jwt.sign(
         { _id: customer._id, role: customer.role },
-        process.env.ACCESS_TOKEN_SECRET,
+        ACCESS_TOKEN_SECRET,
         {
           expiresIn: 86400, // 24 hours
         }
@@ -97,10 +98,7 @@ router.post("/login", async (req, res) => {
         accessToken: token,
       });
     });
-    console.log(
-      "🚀 ~ Customer.findOne ~ process.env.ACCESS_TOKEN_SECRET,:",
-      process.env.ACCESS_TOKEN_SECRET
-    );
+ 
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
